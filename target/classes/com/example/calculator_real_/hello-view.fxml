@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Light.Point?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="831.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.calculator_real_.Controller">
+   <children>
+      <Label alignment="CENTER" layoutX="599.0" layoutY="432.0" prefHeight="70.0" prefWidth="100.0" text=" Higher Bound" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font name="Calibri Light" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="reset" layoutX="429.0" layoutY="424.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="70.0" text="Reset">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.91">
+               <input>
+                  <ColorAdjust contrast="0.67" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </Button>
+      <Slider fx:id="lower" layoutX="718.0" layoutY="58.0" max="100.000001" onDragDetected="#setLowerLimit" orientation="VERTICAL" prefHeight="365.0" prefWidth="80.0" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+         <effect>
+            <ColorAdjust brightness="1.0" contrast="-0.12" hue="-0.73" />
+         </effect>
+      </Slider>
+      <Slider fx:id="higher" layoutX="599.0" layoutY="58.0" max="100.00000001" onDragDetected="#setHigherLimit" orientation="VERTICAL" prefHeight="365.0" prefWidth="100.0" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+         <effect>
+            <ColorAdjust brightness="1.0" contrast="1.0" hue="1.0">
+               <input>
+                  <Lighting bumpInput="$null" specularConstant="0.55">
+                     <light>
+                        <Light.Point />
+                     </light>
+                  </Lighting>
+               </input></ColorAdjust>
+         </effect>
+      </Slider>
+      <Button fx:id="power" layoutX="438.0" layoutY="360.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 100000;">
+         <effect>
+            <ColorAdjust brightness="1.0" contrast="-0.01" saturation="0.73">
+               <input>
+                  <Blend opacity="0.52" />
+               </input>
+            </ColorAdjust>
+         </effect>
+      </Button>
+      <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="450.0" layoutY="372.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@power-button-off.pngpower-button-off.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-1.0" contrast="-0.1" hue="0.51" saturation="0.9" />
+         </effect>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="708.0" layoutY="432.0" prefHeight="70.0" prefWidth="100.0" text=" Lower Bound" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font name="Calibri Light" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="77.0" layoutY="274.0" prefHeight="60.0" prefWidth="221.0" text="Saved Configurations" textFill="WHITE">
+         <font>
+            <Font name="Calibri Light" size="25.0" />
+         </font>
+      </Label>
+      <Separator layoutX="65.0" layoutY="328.0" prefHeight="13.0" prefWidth="341.0" />
+      <Label layoutX="77.0" layoutY="336.0" prefHeight="51.0" prefWidth="175.0" text="Save new configuration:" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="newConfig" layoutX="251.0" layoutY="349.0" prefHeight="33.0" prefWidth="111.0" promptText="Enter Config Name">
+         <font>
+            <Font name="Calibri Light" size="12.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.65" />
+         </effect>
+      </TextField>
+      <Label layoutX="77.0" layoutY="382.0" prefHeight="42.0" prefWidth="165.0" text="Update configuration:" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="updateConfig" blendMode="ADD" layoutX="253.0" layoutY="389.0" prefHeight="27.0" prefWidth="107.0">
+         <effect>
+            <InnerShadow choke="0.44">
+               <color>
+                  <Color red="0.3245614171028137" green="0.3245614171028137" blue="0.3245614171028137" />
+               </color>
+               <input>
+                  <ColorAdjust contrast="0.62" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </ChoiceBox>
+      <Label layoutX="77.0" layoutY="424.0" prefHeight="42.0" prefWidth="165.0" text="Existing configurations:" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="existConfig" blendMode="ADD" layoutX="253.0" layoutY="428.0" prefHeight="33.0" prefWidth="146.0">
+         <effect>
+            <InnerShadow choke="0.44">
+               <color>
+                  <Color red="0.3245614171028137" green="0.3245614171028137" blue="0.3245614171028137" />
+               </color>
+               <input>
+                  <ColorAdjust contrast="0.62" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </ChoiceBox>
+      <Button fx:id="tick1" layoutX="366.0" layoutY="345.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="37.0" text="✔">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.91" height="24.0" radius="11.5" width="24.0">
+               <input>
+                  <ColorAdjust contrast="0.67" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </Button>
+      <Button fx:id="tick2" layoutX="366.0" layoutY="383.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="37.0" text="✔">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.91" height="24.0" radius="11.5" width="24.0">
+               <input>
+                  <ColorAdjust contrast="0.67" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </Button>
+      <ImageView fitHeight="180.0" fitWidth="232.0" layoutX="37.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Downloads/black%20logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="104.0" fitWidth="341.0" layoutX="228.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Downloads/phineas%20and%20ferb%20white%203.png" />
+         </image>
+      </ImageView>
+      <Separator layoutY="-1.0" orientation="VERTICAL" prefHeight="539.0" prefWidth="6.0" />
+      <Separator layoutX="828.0" orientation="VERTICAL" prefHeight="539.0" prefWidth="6.0" />
+      <Separator layoutY="508.0" prefHeight="60.0" prefWidth="831.0" />
+      <Separator layoutX="1.0" layoutY="-40.0" prefHeight="83.0" prefWidth="831.0" />
+      <Separator prefHeight="27.0" prefWidth="831.0" />
+      <Separator layoutX="1.0" layoutY="519.0" prefHeight="13.0" prefWidth="831.0" />
+      <Separator layoutX="13.0" orientation="VERTICAL" prefHeight="539.0" prefWidth="6.0" />
+      <Separator layoutX="815.0" orientation="VERTICAL" prefHeight="539.0" prefWidth="6.0" />
+      <Separator layoutX="29.0" layoutY="466.0" orientation="VERTICAL" prefHeight="83.0" prefWidth="6.0" rotate="-45.0" />
+      <Separator layoutX="799.0" layoutY="-13.0" orientation="VERTICAL" prefHeight="83.0" prefWidth="6.0" rotate="-45.0" />
+   </children>
+</AnchorPane>
